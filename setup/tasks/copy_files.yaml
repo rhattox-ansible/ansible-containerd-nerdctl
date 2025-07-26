@@ -1,4 +1,4 @@
-- name: Copy nerdctl containerd-rootless and bin files
+- name: Copy nerdctl Binaries to Install Path
   ansible.builtin.copy:
     src: "{{ item }}"
     dest: "{{ install_path }}"

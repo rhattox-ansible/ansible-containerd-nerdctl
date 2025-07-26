@@ -1,6 +1,6 @@
-- name: Download Files
+- name: Download nerdctl Archive
   block:
-    - name: Download NerdCTL
+    - name: Download nerdctl Release Tarball
       ansible.builtin.get_url:
         url: "{{ nerdctl_url }}"
         dest: "{{ temporary_folder }}/nerdctl.tar.gz"

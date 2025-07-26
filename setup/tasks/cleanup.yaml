@@ -1,4 +1,4 @@
-- name: Cleanup Temporary directory
+- name: Remove nerdctl Temporary Directory
   ansible.builtin.file:
     path: "{{ temporary_folder }}"
     state: absent

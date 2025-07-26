@@ -1,4 +1,4 @@
-- name: Create directory if it doesn't exist
+- name: Create nerdctl Temporary Directory
   ansible.builtin.file:
     path: "{{ temporary_folder }}"
     state: directory

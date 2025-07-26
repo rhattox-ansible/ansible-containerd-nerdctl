@@ -1,17 +1,17 @@
-- name: Create Temporary Folder
+- name: Setup nerdctl Temporary Directory
   ansible.builtin.include_tasks: setup_temporary_folder.yaml
 
-- name: Download Files
+- name: Download nerdctl Release
   ansible.builtin.include_tasks: download_files.yaml
 
-- name: Extract Files
+- name: Extract nerdctl Release
   ansible.builtin.include_tasks: extract_files.yaml
 
-- name: Copy Files
+- name: Copy nerdctl Binaries
   ansible.builtin.include_tasks: copy_files.yaml
 
-- name: Post Installation
+- name: Post-Installation Setup for nerdctl
   ansible.builtin.include_tasks: post_install.yaml
 
-- name: CleanUP
+- name: Cleanup nerdctl Temporary Files
   ansible.builtin.include_tasks: cleanup.yaml
