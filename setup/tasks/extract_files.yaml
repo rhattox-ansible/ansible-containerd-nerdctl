@@ -1,0 +1,14 @@
+- name: Extract Files
+  block:
+    - name: Create NerdCTL directory
+      ansible.builtin.file:
+        path: "{{ temporary_folder }}/nerdctl"
+        state: directory
+        mode: "0755"
+
+    - name: Extract nerdctl archive
+      ansible.builtin.unarchive:
+        src: "{{ temporary_folder }}/nerdctl.tar.gz"
+        dest: "{{ temporary_folder }}/nerdctl"
+        remote_src: true
+        mode: "0755"

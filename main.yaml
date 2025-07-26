@@ -1,0 +1,8 @@
+- name: ContainerD NerdCTL Installation
+  hosts: localhost
+  become: true
+  gather_facts: true
+  vars:
+    ansible_python_interpreter: /opt/ansible-venv/bin/python
+  roles:
+    - setup

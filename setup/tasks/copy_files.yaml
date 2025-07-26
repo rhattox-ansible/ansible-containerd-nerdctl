@@ -1,0 +1,10 @@
+- name: Copy nerdctl containerd-rootless and bin files
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: "{{ install_path }}"
+    mode: "0550"
+    owner: "{{ ansible_env.SUDO_USER }}"
+    group: "{{ ansible_env.SUDO_USER }}"
+    remote_src: true
+  with_fileglob:
+    - "{{ temporary_folder }}/nerdctl/bin/*"

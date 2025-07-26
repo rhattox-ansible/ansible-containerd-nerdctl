@@ -1,0 +1,23 @@
+- name: Update Packages And Add Required Packages
+  block:
+    - name: Update APT package cache
+      ansible.builtin.apt:
+        update_cache: true
+
+    - name: Install Prerequisites
+      ansible.builtin.apt:
+        name: "uidmap"
+        state: present
+
+- name: Install rootless setup for nerdctl
+  become: false
+  ansible.builtin.command: " {{ temporary_folder }}/nerdctl/bin/containerd-rootless-setuptool.sh install"
+  changed_when: true
+
+- name: Create symbolic link from nerdctl to docker
+  become: false
+  ansible.builtin.file:
+    src: "{{ install_path }}/nerdctl"
+    dest: "{{ install_path }}/docker"
+    state: link
+    force: true
