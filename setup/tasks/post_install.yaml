@@ -15,9 +15,10 @@
   changed_when: true
 
 - name: Create docker Symlink to nerdctl
-  become: false
+  become: true
   ansible.builtin.file:
     src: "{{ install_path }}/nerdctl"
     dest: "{{ install_path }}/docker"
     state: link
     force: true
+    mode: "0777"
