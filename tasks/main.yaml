@@ -1,3 +1,10 @@
+- name: Starting containerd nerdctl installation
+  ansible.builtin.debug:
+    msg:
+      - "=================================================="
+      - "Starting containerd nerdctl installation..."
+      - "=================================================="
+
 - name: Prepare temporary directory for containerd nerdctl installation
   ansible.builtin.include_tasks: 0-setup_temporary_folder.yaml
 
@@ -15,3 +22,10 @@
 
 - name: Remove temporary files created during containerd nerdctl installation
   ansible.builtin.include_tasks: 5-cleanup.yaml
+
+- name: Containerd nerdctl installation completed successfully
+  ansible.builtin.debug:
+    msg:
+      - "=================================================="
+      - "Containerd nerdctl installation completed successfully."
+      - "=================================================="
