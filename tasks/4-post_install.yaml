@@ -11,9 +11,9 @@
 
 - name: Run the containerd nerdctl rootless setup tool
   become: false
-  ansible.builtin.command: "{{ install_path }}/containerd-rootless-setuptool.sh install"
+  ansible.builtin.command: "{{ temporary_folder }}/nerdctl/bin/containerd-rootless-setuptool.sh install"
   environment:
-    PATH: "{{ install_path }}:{{ ansible_env.PATH }}"
+    PATH: "{{ temporary_folder }}/nerdctl/bin/:{{ ansible_env.PATH }}"
   changed_when: true
 
 - name: Create a docker symlink pointing to the nerdctl binary
