@@ -2,7 +2,8 @@
   hosts: localhost
   become: true
   gather_facts: true
-  vars:
-    ansible_python_interpreter: /opt/ansible-venv/bin/python
-  roles:
-    - setup
+  vars_files:
+    - "defaults/main.yaml"
+
+  tasks:
+    - ansible.builtin.include_tasks: "tasks/main.yaml"

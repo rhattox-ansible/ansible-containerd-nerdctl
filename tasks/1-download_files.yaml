@@ -1,0 +1,8 @@
+- name: Download nerdctl Release Tarball
+  ansible.builtin.get_url:
+    url: "{{ nerdctl_url }}"
+    dest: "{{ temporary_folder }}/nerdctl.tar.gz"
+    mode: "0644"
+    force: false
+    validate_certs: true
+    timeout: 60

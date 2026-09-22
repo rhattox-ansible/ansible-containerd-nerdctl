@@ -1,0 +1,25 @@
+galaxy_info:
+  role_name: ansible_containerd_nerdctl
+  author: rhattox
+  description: Install and configure nerdctl for containerd on Linux hosts.
+  company: ""
+  license: MIT
+  min_ansible_version: "2.9"
+  platforms:
+    - name: Debian
+      versions:
+        - bullseye
+        - bookworm
+    - name: Ubuntu
+      versions:
+        - focal
+        - jammy
+        - noble
+  galaxy_tags:
+    - containerd
+    - nerdctl
+    - docker
+    - containers
+    - linux
+
+dependencies: []
