@@ -1,17 +1,17 @@
-- name: Prepare containerd nerdctl temporary directory
-  ansible.builtin.include_tasks: setup_temporary_folder.yaml
+- name: Prepare temporary directory for containerd nerdctl installation
+  ansible.builtin.include_tasks: 0-setup_temporary_folder.yaml
 
-- name: Download containerd nerdctl release archive
-  ansible.builtin.include_tasks: download_files.yaml
+- name: Download the containerd nerdctl release tarball
+  ansible.builtin.include_tasks: 1-download_files.yaml
 
-- name: Extract containerd nerdctl release archive
-  ansible.builtin.include_tasks: extract_files.yaml
+- name: Extract the containerd nerdctl release archive
+  ansible.builtin.include_tasks: 2-extract_files.yaml
 
-- name: Install containerd nerdctl binaries
-  ansible.builtin.include_tasks: copy_files.yaml
+- name: Install containerd nerdctl binaries to the target path
+  ansible.builtin.include_tasks: 3-copy_files.yaml
 
-- name: Configure containerd nerdctl post-installation settings
-  ansible.builtin.include_tasks: post_install.yaml
+- name: Update package cache and install rootless container prerequisites
+  ansible.builtin.include_tasks: 4-post_install.yaml
 
-- name: Remove temporary containerd nerdctl installation files
-  ansible.builtin.include_tasks: cleanup.yaml
+- name: Remove temporary files created during containerd nerdctl installation
+  ansible.builtin.include_tasks: 5-cleanup.yaml
