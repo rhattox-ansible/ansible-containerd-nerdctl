@@ -2,8 +2,10 @@
   hosts: localhost
   become: true
   gather_facts: true
+
   vars_files:
-    - "defaults/main.yaml"
+    - defaults/main.yaml
 
   tasks:
-    - ansible.builtin.include_tasks: "tasks/main.yaml"
+    - name: Run the nerdctl installation workflow
+      ansible.builtin.include_tasks: "tasks/main.yaml"
