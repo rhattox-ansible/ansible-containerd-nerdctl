@@ -1,10 +1,22 @@
 - name: Install containerd nerdctl binaries to the target path
   ansible.builtin.copy:
-    src: "{{ item }}"
-    dest: "{{ install_path }}"
+    src: "{{ temporary_folder }}/nerdctl/bin/"
+    dest: "/opt/nerdctl/bin/"
     mode: "0550"
     owner: "{{ ansible_env.SUDO_USER }}"
     group: "{{ ansible_env.SUDO_USER }}"
     remote_src: true
-  with_fileglob:
-    - "{{ temporary_folder }}/nerdctl/bin/*"
+
+- name: Create temporary directory for containerd nerdctl installation
+  ansible.builtin.file:
+    path: "/opt/nerdctl/bin/"
+    state: directory
+    mode: "0755"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
+
+- name: Create a symbolic link
+  ansible.builtin.file:
+    src: "/opt/nerdctl/bin/nerdctl"
+    dest: "{{ install_path }}/nerdctl"
+    state: link
