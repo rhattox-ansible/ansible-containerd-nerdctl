@@ -1,6 +1,6 @@
 # ansible-containerd-nerdctl
 
-Ansible role to automate the installation and setup of [nerdctl](https://github.com/containerd/nerdctl) for [containerd](https://containerd.io/).
+Ansible role for installing and configuring [nerdctl](https://github.com/containerd/nerdctl) for [containerd](https://containerd.io/) on Linux hosts.
 
 ## Features
 

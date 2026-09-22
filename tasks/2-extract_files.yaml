@@ -1,10 +1,10 @@
-- name: Create nerdctl Extraction Directory
+- name: Create extraction directory for the containerd nerdctl archive
   ansible.builtin.file:
     path: "{{ temporary_folder }}/nerdctl"
     state: directory
     mode: "0755"
 
-- name: Unarchive nerdctl Tarball
+- name: Extract the containerd nerdctl release archive
   ansible.builtin.unarchive:
     src: "{{ temporary_folder }}/nerdctl.tar.gz"
     dest: "{{ temporary_folder }}/nerdctl"

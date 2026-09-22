@@ -1,4 +1,4 @@
-- name: Copy nerdctl Binaries to Install Path
+- name: Install containerd nerdctl binaries to the target path
   ansible.builtin.copy:
     src: "{{ item }}"
     dest: "{{ install_path }}"

@@ -1,4 +1,4 @@
-- name: Create nerdctl Temporary Directory
+- name: Create temporary directory for containerd nerdctl installation
   ansible.builtin.file:
     path: "{{ temporary_folder }}"
     state: directory

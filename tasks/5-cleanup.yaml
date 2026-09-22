@@ -1,4 +1,4 @@
-- name: Remove nerdctl Temporary Directory
+- name: Remove temporary files created during containerd nerdctl installation
   ansible.builtin.file:
     path: "{{ temporary_folder }}"
     state: absent

@@ -1,4 +1,4 @@
-- name: Download nerdctl Release Tarball
+- name: Download the containerd nerdctl release tarball
   ansible.builtin.get_url:
     url: "{{ nerdctl_url }}"
     dest: "{{ temporary_folder }}/nerdctl.tar.gz"

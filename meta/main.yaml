@@ -1,7 +1,7 @@
 galaxy_info:
-  role_name: ansible_containerd_nerdctl
+  role_name: containerd_nerdctl
   author: rhattox
-  description: Install and configure nerdctl for containerd on Linux hosts.
+  description: Install and configure containerd nerdctl on Linux systems with rootless container support.
   company: ""
   license: MIT
   min_ansible_version: "2.9"
@@ -21,5 +21,6 @@ galaxy_info:
     - docker
     - containers
     - linux
+    - rootless
 
 dependencies: []
